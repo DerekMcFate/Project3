@@ -1,0 +1,22 @@
+var group = new THREE.Group();
+this.add( group );
+var plane = this.getObjectByName( 'Land' );
+
+for ( var j = 0; j < 25; j ++ ) //z
+{
+	var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } );
+
+	for ( var i = 0; i < 25; i ++ ) //x
+	{
+		var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } );
+		var object = plane.clone();
+		object.position.x = i * 10 - 125; //multiple of 100+j value? to center
+		object.position.z = j * 10 - 125; //multiple of 100+i value? to center
+		group.add( object );
+		
+		plane.material = material;
+	}
+}
+
+plane.visible = false;
+plane.material.visible = false;
